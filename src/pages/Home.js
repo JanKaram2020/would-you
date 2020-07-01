@@ -46,9 +46,7 @@ class Home extends Component {
   }
 }
 function mapStateToProps({ authUser, users, questions }) {
-  const usersArray = Object.values(users);
-  const authId = usersArray.filter((u) => u.name === authUser)[0].id;
-  const ansId = Object.keys(users[authId].answers);
+  const ansId = Object.keys(users[authUser].answers);
   const unAnsId = Object.keys(questions).filter((q) => !ansId.includes(q));
   const answered = Object.values(questions)
     .filter((question) => ansId.includes(question.id))

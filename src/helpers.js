@@ -22,8 +22,8 @@ export function handleSaveQuestion(optionOneText, optionTwoText, author) {
 }
 export function handleAnswerQuestion(authUser, qid, answer) {
     return dispatch => {
-        dispatch(answerAddedToUser(authUser, qid, answer));
-        dispatch(questionAnswered(authUser, qid, answer));
+        dispatch(answerAddedToUser({authUser:authUser, qid:qid, answer:answer}));
+        dispatch(questionAnswered({authUser:authUser, qid:qid, answer:answer}));
         return saveQuestionAnswer({authUser:authUser, qid:qid, answer:answer});
     };
 }

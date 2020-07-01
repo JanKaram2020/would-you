@@ -11,7 +11,20 @@ const slice = createSlice({
         ...action.payload
       }
     },
-    answerAddedToUser: () => {},
+    answerAddedToUser: (users, action) => {
+      const { authUser, qid, answer } = action;
+
+      return {
+        ...users,
+        [authUser]: {
+          ...users[authUser],
+          answers: {
+            ...users[authUser].answers,
+            [qid]: answer
+          }
+        }
+      };
+    },
     questionAddedToUser: (users, action) => {
       return {
         ...users,

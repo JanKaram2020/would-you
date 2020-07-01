@@ -29,7 +29,7 @@ class Login extends Component {
             <Form.Control as="select" custom onChange={this.changeHandler}>
               <option value="">...</option>
               {this.props.users.map((u) => (
-                <option key={u.id} value={u.name}>
+                <option key={u.id} value={u.id}>
                   {u.name}
                 </option>
               ))}

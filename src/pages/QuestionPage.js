@@ -84,7 +84,7 @@ function QuestionPage(props) {
                       name="inlineRadioOptions"
                       id="inlineRadio1"
                       value={q.optionOne.text}
-                      onChange={() => {setOption(q.optionOne.text)}}
+                      onChange={() => {setOption("optionOne")}}
                     />
                     <label className="form-check-label" htmlFor="inlineRadio1">
                       {q.optionOne.text}
@@ -100,7 +100,7 @@ function QuestionPage(props) {
                       name="inlineRadioOptions"
                       id="inlineRadio1"
                       value={q.optionTwo.text}
-                      onChange={() => {setOption(q.optionTwo.text)}}
+                      onChange={() => {setOption("optionTwo")}}
                     />
                     <label className="form-check-label" htmlFor="inlineRadio1">
                       {q.optionTwo.text}
@@ -121,15 +121,12 @@ function QuestionPage(props) {
   }
 }
 function mapStateToProps({ users, questions, authUser }) {
-  const usersArray = Object.values(users);
-  const authId = usersArray.filter((u) => u.name === authUser)[0].id;
-  const ansId = Object.keys(users[authId].answers);
+  const ansId = Object.keys(users[authUser].answers);
   const unAnsId = Object.keys(questions).filter((q) => !ansId.includes(q));
   return {
     users,
     questions,
     authUser,
-    authId,
     ansId,
     unAnsId,
   };
