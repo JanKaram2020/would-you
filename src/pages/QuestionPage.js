@@ -14,8 +14,8 @@ function QuestionPage(props) {
   }
   if (props.ansId.includes(id)) {
     const percentage =
-      (q.optionOne.votes.length * 100) /
-      (q.optionOne.votes.length + q.optionTwo.votes.length);
+      Math.round((q.optionOne.votes.length * 100) /
+      (q.optionOne.votes.length + q.optionTwo.votes.length));
     return (
       <div>
         <Navigation />
@@ -49,7 +49,7 @@ function QuestionPage(props) {
                 <ProgressBar
                   animated
                   variant="warning"
-                  now={percentage}
+                  now={100 - percentage}
                   label={`${100 - percentage}% ${q.optionTwo.text}`}
                 />
               </ProgressBar>
@@ -58,7 +58,8 @@ function QuestionPage(props) {
         </Container>
       </div>
     );
-  } else {
+  }
+  else {
     const handleSubmit = (e) =>{
       e.preventDefault();
       props.handleAnswerQuestion(props.authUser, q.id, option);

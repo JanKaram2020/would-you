@@ -12,8 +12,7 @@ const slice = createSlice({
       }
     },
     answerAddedToUser: (users, action) => {
-      const { authUser, qid, answer } = action;
-
+      const { authUser, qid, answer } = action.payload;
       return {
         ...users,
         [authUser]: {
@@ -26,11 +25,12 @@ const slice = createSlice({
       };
     },
     questionAddedToUser: (users, action) => {
+      const {author, id} = action.payload;
       return {
         ...users,
-        [action.payload.author]: {
-          ...users[action.payload.author],
-          questions: users[action.payload.author].questions.concat(action.payload.id)
+        [author]: {
+          ...users[author],
+          questions: users[author].questions.concat(id)
         }
     }
   },
