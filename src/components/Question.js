@@ -10,13 +10,14 @@ class Question extends Component {
             <img
               src={`${this.props.img}`}
               style={{ width: "40px", borderRadius: "50%" }}
-              alt="thing"
+              alt={this.props.Author}
             />
             <strong> {" " + this.props.Author}</strong> asks
           </Card.Header>
           <Card.Body>
-            <Card.Title>Would you rather</Card.Title>
-            <h1 className="d-inline-block">{`${this.props.op1} `}</h1> or{" "}
+            <Card.Title><span className="text-primary">Would you rather</span></Card.Title>
+            <h1 className="d-inline-block">{`${this.props.op1} `}</h1>
+            <span className="text-primary"> &nbsp; or &nbsp;</span>
             <h1 className="d-inline-block"> {`${this.props.op2}`}</h1>
             <Card.Body>
               <Link

@@ -33,7 +33,7 @@ class Add extends Component {
           <div className="mt-1 text-center">
             <p>Complete the question:</p>
             <h3>
-              <strong>Would you rather...</strong>
+              <span className="text-primary font-weight-bold">Would you rather... </span>
             </h3>
             <form onSubmit={this.handleSubmit}>
               <div className="row">
@@ -63,6 +63,7 @@ class Add extends Component {
                   type="submit"
                   disabled={disabled}
                   className="mt-2 btn btn-primary btn-lg btn-block"
+                  value="Add Question"
               />
             </form>
           </div>

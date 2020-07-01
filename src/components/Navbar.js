@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { LinkContainer } from "react-router-bootstrap";
 import { Navbar, Nav } from "react-bootstrap";
-import {connect} from "react-redux";
-import {setAuthedUser} from "../store/authUser";
+import { connect } from "react-redux";
+import { setAuthedUser } from "../store/authUser";
 
 class Navigation extends Component {
   logout = () => {
@@ -26,7 +26,22 @@ class Navigation extends Component {
                 <Nav.Link>Leaderboard</Nav.Link>
               </LinkContainer>
             </Nav>
-            <Navbar.Text>Signed in as: {this.props.authUser}  &nbsp; &nbsp;</Navbar.Text>
+            <Navbar.Text>
+              {" "}
+              Signed in as:  &nbsp;
+              <span className="text-primary">
+                {this.props.users[this.props.authUser].name}
+              </span>{" "}
+              &nbsp;
+            </Navbar.Text>
+            <span>
+              <img
+                src={this.props.users[this.props.authUser].avatarURL}
+                alt={this.props.users[this.props.authUser].name}
+                style={{ width: "50px", borderRadius: "50%" }}
+              />
+              &nbsp; &nbsp;
+            </span>
             <button className="btn btn-outline-primary" onClick={this.logout}>
               {" "}
               Logout{" "}
@@ -37,7 +52,7 @@ class Navigation extends Component {
     );
   }
 }
-function mapStateToProps({authUser}) {
-  return {authUser};
+function mapStateToProps({ authUser, users }) {
+  return { authUser, users };
 }
-export default connect(mapStateToProps, {setAuthedUser})(Navigation);
+export default connect(mapStateToProps, { setAuthedUser })(Navigation);

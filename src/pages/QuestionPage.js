@@ -1,9 +1,9 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Navigation from "../components/Navbar";
 import { useParams, Redirect } from "react-router-dom";
-import {Card, Row, ProgressBar, Container} from "react-bootstrap";
+import { Card, Row, ProgressBar, Container } from "react-bootstrap";
 import { connect } from "react-redux";
-import {handleAnswerQuestion} from '../helpers';
+import { handleAnswerQuestion } from "../helpers";
 
 function QuestionPage(props) {
   const { id } = useParams();
@@ -13,9 +13,10 @@ function QuestionPage(props) {
     return <Redirect to="/404" />;
   }
   if (props.ansId.includes(id)) {
-    const percentage =
-      Math.round((q.optionOne.votes.length * 100) /
-      (q.optionOne.votes.length + q.optionTwo.votes.length));
+    const percentage = Math.round(
+      (q.optionOne.votes.length * 100) /
+        (q.optionOne.votes.length + q.optionTwo.votes.length)
+    );
     return (
       <div>
         <Navigation />
@@ -30,15 +31,25 @@ function QuestionPage(props) {
               <strong> {props.users[q.author].name}</strong> asks
             </Card.Header>
             <Card.Body>
-              <Card.Title>Would you rather</Card.Title>
+              <Card.Title>
+                <span className="text-primary">Would you rather</span>
+              </Card.Title>
               <h1 className="d-inline-block">{q.optionOne.text}</h1> or{" "}
               <h1 className="d-inline-block"> {q.optionTwo.text}</h1>
             </Card.Body>
             <Row className="justify-content-center">
               <h5>
-                {q.optionOne.votes === props.authId
-                  ? `you choose to ${q.optionOne.text}`
-                  : `you choose to ${q.optionTwo.text}`}
+                {q.optionOne.votes.includes(props.authUser) ? (
+                  <span className="text-primary">
+                    {" "}
+                    you choose to {q.optionOne.text}
+                  </span>
+                ) : (
+                  <span className="text-warning">
+                    {" "}
+                    you choose to {q.optionTwo.text}
+                  </span>
+                )}
               </h5>
               <ProgressBar style={{ width: "90%" }}>
                 <ProgressBar
@@ -58,9 +69,8 @@ function QuestionPage(props) {
         </Container>
       </div>
     );
-  }
-  else {
-    const handleSubmit = (e) =>{
+  } else {
+    const handleSubmit = (e) => {
       e.preventDefault();
       props.handleAnswerQuestion(props.authUser, q.id, option);
     };
@@ -69,9 +79,15 @@ function QuestionPage(props) {
         <Navigation />
         <div className="container">
           <div className="mt-1 text-center">
-            <p>Complete the question:</p>
-            <img src={props.users[q.author].avatarURL} style={{width:"100px", borderRadius:"50%"}} alt={props.users[q.author].name}/>
-            <p><strong>{props.users[q.author].name}</strong> asks</p>
+            <p>Answer the question:</p>
+            <img
+              src={props.users[q.author].avatarURL}
+              style={{ width: "100px", borderRadius: "50%" }}
+              alt={props.users[q.author].name}
+            />
+            <p>
+              <strong>{props.users[q.author].name}</strong> asks
+            </p>
             <h3>
               <strong>Would you rather...</strong>
             </h3>
@@ -85,7 +101,9 @@ function QuestionPage(props) {
                       name="inlineRadioOptions"
                       id="inlineRadio1"
                       value={q.optionOne.text}
-                      onChange={() => {setOption("optionOne")}}
+                      onChange={() => {
+                        setOption("optionOne");
+                      }}
                     />
                     <label className="form-check-label" htmlFor="inlineRadio1">
                       {q.optionOne.text}
@@ -101,7 +119,9 @@ function QuestionPage(props) {
                       name="inlineRadioOptions"
                       id="inlineRadio1"
                       value={q.optionTwo.text}
-                      onChange={() => {setOption("optionTwo")}}
+                      onChange={() => {
+                        setOption("optionTwo");
+                      }}
                     />
                     <label className="form-check-label" htmlFor="inlineRadio1">
                       {q.optionTwo.text}
@@ -113,6 +133,7 @@ function QuestionPage(props) {
                 type="submit"
                 className="mt-2 btn btn-primary btn-lg btn-block"
                 disabled={option === ""}
+                value="Submit Answer"
               />
             </form>
           </div>
@@ -132,4 +153,4 @@ function mapStateToProps({ users, questions, authUser }) {
     unAnsId,
   };
 }
-export default connect(mapStateToProps, {handleAnswerQuestion})(QuestionPage);
+export default connect(mapStateToProps, { handleAnswerQuestion })(QuestionPage);
