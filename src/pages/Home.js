@@ -6,8 +6,6 @@ import { connect } from "react-redux";
 
 class Home extends Component {
   render() {
-    console.log("answered are", this.props.answered);
-    console.log("unanswered are", this.props.unanswered);
     return (
       <div>
         <Navigation />

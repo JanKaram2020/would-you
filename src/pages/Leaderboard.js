@@ -6,7 +6,6 @@ import { connect } from "react-redux";
 
 class Leaderboard extends Component {
   render() {
-    console.log(this.props);
     const sorted = this.props.usersData.sort(
         (a, b) =>
             ((Object.values(a.answers).length +

@@ -33,11 +33,6 @@ class Login extends Component {
                   {u.name}
                 </option>
               ))}
-              {/*<option value="jan1">1</option>*/}
-              {/*<option value="jan2">2</option>*/}
-              {/*<option value="jan3">3</option>*/}
-              {/*<option value="jan4">4</option>*/}
-              {/*<option value="jan5">5</option>*/}
             </Form.Control>
           </Form.Group>
           <input type="submit" className="btn btn-outline-primary btn-lg" disabled={disabled}/>
