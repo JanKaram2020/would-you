@@ -37,10 +37,3 @@ const slice = createSlice({
 }});
 export const { usersReceived, answerAddedToUser, questionAddedToUser} = slice.actions;
 export default slice.reducer;
-
-// TODO : i need to receive users -- typed without logic
-// TODO : i need to receive questions
-// TODO : i need to add question to questions
-// TODO : i need to add question to user -- typed without logic
-// TODO : i need to add answer to questions
-// TODO : i need to add answer to user -- typed without logic

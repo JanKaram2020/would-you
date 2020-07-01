@@ -41,4 +41,3 @@ function mapStateToProps({authUser}) {
   return {authUser};
 }
 export default connect(mapStateToProps, {setAuthedUser})(Navigation);
-//Todo: needs authedUser

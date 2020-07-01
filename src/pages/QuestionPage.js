@@ -133,4 +133,3 @@ function mapStateToProps({ users, questions, authUser }) {
   };
 }
 export default connect(mapStateToProps, {handleAnswerQuestion})(QuestionPage);
-// TODO: needs authedUser, questionAnswerd , questions from users

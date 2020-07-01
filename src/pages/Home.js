@@ -61,4 +61,3 @@ function mapStateToProps({ authUser, users, questions }) {
   };
 }
 export default connect(mapStateToProps)(Home);
-// TODO: needs questions from questions

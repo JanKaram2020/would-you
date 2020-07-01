@@ -50,4 +50,3 @@ function mapStateToProps({ authUser, users }) {
   return { authUser, users: Object.values(users) };
 }
 export default connect(mapStateToProps, { setAuthedUser })(Login);
-// TODO: needs list of users, setAuthUserAction
