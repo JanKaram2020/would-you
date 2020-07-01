@@ -2,14 +2,13 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const slice = createSlice({
   name: "users",
-  initialState: {
-  },
+  initialState: {},
   reducers: {
     usersReceived: (users, action) => {
       return {
         ...users,
-        ...action.payload
-      }
+        ...action.payload,
+      };
     },
     answerAddedToUser: (users, action) => {
       const { authUser, qid, answer } = action.payload;
@@ -19,21 +18,26 @@ const slice = createSlice({
           ...users[authUser],
           answers: {
             ...users[authUser].answers,
-            [qid]: answer
-          }
-        }
+            [qid]: answer,
+          },
+        },
       };
     },
     questionAddedToUser: (users, action) => {
-      const {author, id} = action.payload;
+      const { author, id } = action.payload;
       return {
         ...users,
         [author]: {
           ...users[author],
-          questions: users[author].questions.concat(id)
-        }
-    }
+          questions: users[author].questions.concat(id),
+        },
+      };
+    },
   },
-}});
-export const { usersReceived, answerAddedToUser, questionAddedToUser} = slice.actions;
+});
+export const {
+  usersReceived,
+  answerAddedToUser,
+  questionAddedToUser,
+} = slice.actions;
 export default slice.reducer;

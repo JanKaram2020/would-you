@@ -6,12 +6,14 @@ import { connect } from "react-redux";
 
 class Leaderboard extends Component {
   render() {
-    const sorted = this.props.usersData.sort(
+    const sorted = this.props.usersData
+      .sort(
         (a, b) =>
-            ((Object.values(a.answers).length +
-                a.questions.length) -
-                (Object.values(b.answers).length + b.questions.length))
-    ).reverse();
+          Object.values(a.answers).length +
+          a.questions.length -
+          (Object.values(b.answers).length + b.questions.length)
+      )
+      .reverse();
     return (
       <div>
         <Navigation />

@@ -7,14 +7,14 @@ const slice = createSlice({
     questionsReceived: (questions, action) => {
       return {
         ...questions,
-        ...action.payload
-      }
+        ...action.payload,
+      };
     },
     questionAdded: (questions, action) => {
       return {
         ...questions,
-        [action.payload.id]:action.payload,
-      }
+        [action.payload.id]: action.payload,
+      };
     },
     questionAnswered: (questions, action) => {
       const { authUser, qid, answer } = action.payload;
@@ -24,12 +24,16 @@ const slice = createSlice({
           ...questions[qid],
           [answer]: {
             ...questions[qid][answer],
-            votes: questions[qid][answer].votes.concat(authUser)
-          }
-        }
+            votes: questions[qid][answer].votes.concat(authUser),
+          },
+        },
       };
     },
   },
 });
-export const { questionsReceived, questionAdded, questionAnswered } = slice.actions;
+export const {
+  questionsReceived,
+  questionAdded,
+  questionAnswered,
+} = slice.actions;
 export default slice.reducer;

@@ -35,7 +35,11 @@ class Login extends Component {
               ))}
             </Form.Control>
           </Form.Group>
-          <input type="submit" className="btn btn-outline-primary btn-lg" disabled={disabled}/>
+          <input
+            type="submit"
+            className="btn btn-outline-primary btn-lg"
+            disabled={disabled}
+          />
         </form>
       </div>
     );
