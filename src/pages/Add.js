@@ -16,12 +16,15 @@ class Add extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const { option1, option2 } = this.state;
-    this.props.handleSaveQuestion(option1, option2, this.props.authUser);
-    this.setState({
-      option1: "",
-      option2: "",
-      done: true
-    });
+    if (option1 === option2){ this.setState({error: "you wrote same value in both fields"})}
+    else{
+      this.props.handleSaveQuestion(option1, option2, this.props.authUser);
+      this.setState({
+        option1: "",
+        option2: "",
+        done: true
+      });
+    }
   };
   render() {
     if(this.state.done){return (<Redirect to="/"/>)}
@@ -59,6 +62,7 @@ class Add extends Component {
                   />
                 </div>
               </div>
+              <h6 className="text-warning">{this.state.error}</h6>
               <input
                   type="submit"
                   disabled={disabled}
