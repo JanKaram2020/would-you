@@ -16,7 +16,7 @@ const slice = createSlice({
     },
     questionAnswered: (questions, action) => {
       const { authUser, qid, answer } = action.payload;
-      questions[qid][answer].votes.concat(authUser);
+      questions[qid][answer].votes.push(authUser);
     },
   },
 });

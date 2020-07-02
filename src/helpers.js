@@ -23,8 +23,8 @@ export function handleInitialData() {
         questions,
       }))
       .then(({ users, questions }) => {
-        dispatch(questionsReceived(questions));
         dispatch(usersReceived(users));
+        dispatch(questionsReceived(questions));
       });
   };
 }
