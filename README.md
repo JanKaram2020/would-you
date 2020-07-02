@@ -2,7 +2,7 @@
 This project is for Udacity's react nano degree;
 it's built using React, Redux  Redux-toolkit, React-Router, react-bootstrap,react-router-bootstrap, and bootstrap;
 
-![screenshot of the app](https://github.com/JanKaram2020/would-you/image.jpg?raw=true)
+![screenshot of the app](https://github.com/JanKaram2020/would-you/blob/master/2020-07-02%2009.10.28%20localhost%208470413f8411.jpg)
 
 ## Installation
 Clone the repository, change directories, and use npm install to install the dependencies.
