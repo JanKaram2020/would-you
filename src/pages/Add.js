@@ -62,11 +62,6 @@ class Add extends Component {
                 </div>
                 <h2> OR </h2>
                 <div className="col">
-                  <Tippy
-                    content="you wrote same value in both fields"
-                    visible={this.state.visible}
-                    onClickOutside={() => this.setState({ visible: false })}
-                  >
                     <input
                       id="option2"
                       placeholder="Enter option two..."
@@ -75,15 +70,20 @@ class Add extends Component {
                       value={this.state.option2}
                       className="form-control"
                     />
-                  </Tippy>
                 </div>
               </div>
+              <Tippy
+                  content="you wrote same value in both fields"
+                  visible={this.state.visible}
+                  onClickOutside={() => this.setState({ visible: false })}
+              >
               <input
                 type="submit"
                 disabled={disabled}
                 className="mt-2 btn btn-primary btn-lg btn-block"
                 value="Add Question"
               />
+              </Tippy>
             </form>
           </div>
         </div>

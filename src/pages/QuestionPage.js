@@ -4,6 +4,8 @@ import { useParams, Redirect } from "react-router-dom";
 import { Card, Row, ProgressBar, Container } from "react-bootstrap";
 import { connect } from "react-redux";
 import { handleAnswerQuestion } from "../helpers";
+import Tippy from "@tippyjs/react";
+import "tippy.js/dist/tippy.css";
 
 function QuestionPage(props) {
   const { id } = useParams();
@@ -95,16 +97,18 @@ function QuestionPage(props) {
               <div className="row">
                 <div className="col">
                   <div className="form-check form-check-inline">
-                    <input
-                      className="form-check-input"
-                      type="radio"
-                      name="inlineRadioOptions"
-                      id="inlineRadio1"
-                      value={q.optionOne.text}
-                      onChange={() => {
-                        setOption("optionOne");
-                      }}
-                    />
+                    <Tippy content="select this">
+                      <input
+                        className="form-check-input"
+                        type="radio"
+                        name="inlineRadioOptions"
+                        id="inlineRadio1"
+                        value={q.optionOne.text}
+                        onChange={() => {
+                          setOption("optionOne");
+                        }}
+                      />
+                    </Tippy>
                     <label className="form-check-label" htmlFor="inlineRadio1">
                       {q.optionOne.text}
                     </label>
@@ -113,28 +117,32 @@ function QuestionPage(props) {
                 <h2> OR </h2>
                 <div className="col">
                   <div className="form-check form-check-inline">
-                    <input
-                      className="form-check-input"
-                      type="radio"
-                      name="inlineRadioOptions"
-                      id="inlineRadio1"
-                      value={q.optionTwo.text}
-                      onChange={() => {
-                        setOption("optionTwo");
-                      }}
-                    />
+                    <Tippy content="select this">
+                      <input
+                        className="form-check-input"
+                        type="radio"
+                        name="inlineRadioOptions"
+                        id="inlineRadio1"
+                        value={q.optionTwo.text}
+                        onChange={() => {
+                          setOption("optionTwo");
+                        }}
+                      />
+                    </Tippy>
                     <label className="form-check-label" htmlFor="inlineRadio1">
                       {q.optionTwo.text}
                     </label>
                   </div>
                 </div>
               </div>
+              <Tippy content="you didn't choose an answer" visible={option === ""}>
               <input
                 type="submit"
                 className="mt-2 btn btn-primary btn-lg btn-block"
                 disabled={option === ""}
                 value="Submit Answer"
               />
+              </Tippy>
             </form>
           </div>
         </div>
