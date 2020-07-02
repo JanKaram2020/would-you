@@ -11,7 +11,7 @@ const slice = createSlice({
       };
     },
     questionAdded: (questions, action) => {
-      const {id} = action.payload;
+      const { id } = action.payload;
       questions[id] = action.payload;
     },
     questionAnswered: (questions, action) => {

@@ -135,13 +135,16 @@ function QuestionPage(props) {
                   </div>
                 </div>
               </div>
-              <Tippy content="you didn't choose an answer" visible={option === ""}>
-              <input
-                type="submit"
-                className="mt-2 btn btn-primary btn-lg btn-block"
-                disabled={option === ""}
-                value="Submit Answer"
-              />
+              <Tippy
+                content="you didn't choose an answer"
+                visible={option === ""}
+              >
+                <input
+                  type="submit"
+                  className="mt-2 btn btn-primary btn-lg btn-block"
+                  disabled={option === ""}
+                  value="Submit Answer"
+                />
               </Tippy>
             </form>
           </div>
