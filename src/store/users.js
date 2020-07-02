@@ -12,26 +12,28 @@ const slice = createSlice({
     },
     answerAddedToUser: (users, action) => {
       const { authUser, qid, answer } = action.payload;
-      return {
-        ...users,
-        [authUser]: {
-          ...users[authUser],
-          answers: {
-            ...users[authUser].answers,
-            [qid]: answer,
-          },
-        },
-      };
+      users[authUser].answers[qid] = answer;
+      // return {
+      //   ...users,
+      //   [authUser]: {
+      //     ...users[authUser],
+      //     answers: {
+      //       ...users[authUser].answers,
+      //       [qid]: answer,
+      //     },
+      //   },
+      // };
     },
     questionAddedToUser: (users, action) => {
       const { author, id } = action.payload;
-      return {
-        ...users,
-        [author]: {
-          ...users[author],
-          questions: users[author].questions.concat(id),
-        },
-      };
+      users[author].questions.concat(id);
+      // return {
+      //   ...users,
+      //   [author]: {
+      //     ...users[author],
+      //     questions: users[author].questions.concat(id),
+      //   },
+      // };
     },
   },
 });
