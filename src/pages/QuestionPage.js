@@ -40,19 +40,15 @@ function QuestionPage(props) {
               <h1 className="d-inline-block"> {q.optionTwo.text}</h1>
             </Card.Body>
             <Row className="justify-content-center">
-              <h5>
-                {q.optionOne.votes.includes(props.authUser) ? (
-                  <span className="text-primary">
-                    {" "}
-                    you choose to {q.optionOne.text}
-                  </span>
-                ) : (
-                  <span className="text-warning">
-                    {" "}
-                    you choose to {q.optionTwo.text}
-                  </span>
-                )}
-              </h5>
+              <h6 className="text-primary">
+                {q.optionOne.votes.length} chose to {q.optionOne.text}
+                {q.optionOne.votes.includes(props.authUser) && " including you"}
+              </h6>
+              <h6>&nbsp; and &nbsp;</h6>
+              <h6 className="text-warning">
+                {q.optionTwo.votes.length} chose to {q.optionTwo.text}
+                {!q.optionOne.votes.includes(props.authUser) && " including you"}
+              </h6>
               <ProgressBar style={{ width: "90%" }}>
                 <ProgressBar
                   animated
