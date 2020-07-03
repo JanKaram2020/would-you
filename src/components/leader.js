@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Badge, Card } from "react-bootstrap";
+import "./leader.css";
 class Leader extends Component {
   render() {
     const numberGenerator = (n) => {
@@ -14,14 +15,14 @@ class Leader extends Component {
       }
     };
     return (
-      <div >
+      <div>
         <Card
           style={{
             width: "20rem",
             marginLeft: "20px",
             display: "inline-block",
           }}
-          className="border border-primary"
+          className="border border-primary zoomIn"
         >
           <Card.Img variant="top" src={`${this.props.img}`} />
           <Card.Body>
@@ -30,9 +31,17 @@ class Leader extends Component {
             </Badge>
             <h1> {this.props.name}</h1>
             <Card.Text>
-              Questions: <span className="text-primary font-weight-bold"> {this.props.q}</span>{" "}
+              Questions:{" "}
+              <span className="text-primary font-weight-bold">
+                {" "}
+                {this.props.q}
+              </span>{" "}
               <br />
-              Answers: <span className="text-primary font-weight-bold"> {this.props.a}</span>
+              Answers:{" "}
+              <span className="text-primary font-weight-bold">
+                {" "}
+                {this.props.a}
+              </span>
             </Card.Text>
           </Card.Body>
         </Card>

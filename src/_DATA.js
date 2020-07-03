@@ -2,7 +2,8 @@ let users = {
   sarahedo: {
     id: "sarahedo",
     name: "Sarah Edo",
-    avatarURL: "https://s.yimg.com/ny/api/res/1.2/f4JJRl1k7WmAe554K2Eeag--/YXBwaWQ9aGlnaGxhbmRlcjt3PTcwNQ--/https://s.yimg.com/uu/api/res/1.2/Zktbbgh1uBvux1uNcb21sQ--~B/dz0wO3NtPTE7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en-US/the_mighty_beauty_225/7eda8d125d3437df8320c9acf73966ba",
+    avatarURL:
+      "https://s.yimg.com/ny/api/res/1.2/f4JJRl1k7WmAe554K2Eeag--/YXBwaWQ9aGlnaGxhbmRlcjt3PTcwNQ--/https://s.yimg.com/uu/api/res/1.2/Zktbbgh1uBvux1uNcb21sQ--~B/dz0wO3NtPTE7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en-US/the_mighty_beauty_225/7eda8d125d3437df8320c9acf73966ba",
     answers: {
       "8xf0y6ziyjabvozdd253nd": "optionOne",
       "6ni6ok3ym7mf1p33lnez": "optionTwo",
@@ -14,7 +15,8 @@ let users = {
   tylermcginnis: {
     id: "tylermcginnis",
     name: "Tyler McGinnis",
-    avatarURL: "https://i2-prod.bristolpost.co.uk/incoming/article3955470.ece/ALTERNATES/s1200c/0_London-Feels-The-Effects-Of-Coronavirus-Outbreak.jpg",
+    avatarURL:
+      "https://i2-prod.bristolpost.co.uk/incoming/article3955470.ece/ALTERNATES/s1200c/0_London-Feels-The-Effects-Of-Coronavirus-Outbreak.jpg",
     answers: {
       vthrdm985a262al8qx3do: "optionOne",
       xj352vofupe1dqz9emx13r: "optionTwo",
@@ -24,7 +26,8 @@ let users = {
   johndoe: {
     id: "johndoe",
     name: "John Doe",
-    avatarURL: "https://cdn.i-scmp.com/sites/default/files/styles/768x768/public/d8/images/methode/2020/02/27/51b56742-5874-11ea-b438-8452af50d521_image_hires_112142.jpg?itok=6iE6F2MR&v=1582773708",
+    avatarURL:
+      "https://cdn.i-scmp.com/sites/default/files/styles/768x768/public/d8/images/methode/2020/02/27/51b56742-5874-11ea-b438-8452af50d521_image_hires_112142.jpg?itok=6iE6F2MR&v=1582773708",
     answers: {
       xj352vofupe1dqz9emx13r: "optionOne",
       vthrdm985a262al8qx3do: "optionTwo",
@@ -117,12 +120,8 @@ let questions = {
 
 function generateUID() {
   return (
-      Math.random()
-          .toString(36)
-          .substring(2, 15) +
-      Math.random()
-          .toString(36)
-          .substring(2, 15)
+    Math.random().toString(36).substring(2, 15) +
+    Math.random().toString(36).substring(2, 15)
   );
 }
 
@@ -145,12 +144,12 @@ function formatQuestion({ optionOneText, optionTwoText, author }) {
     author,
     optionOne: {
       votes: [],
-      text: optionOneText
+      text: optionOneText,
     },
     optionTwo: {
       votes: [],
-      text: optionTwoText
-    }
+      text: optionTwoText,
+    },
   };
 }
 
@@ -162,15 +161,15 @@ export function _saveQuestion(question) {
     setTimeout(() => {
       questions = {
         ...questions,
-        [formattedQuestion.id]: formattedQuestion
+        [formattedQuestion.id]: formattedQuestion,
       };
 
       users = {
         ...users,
         [authUser]: {
           ...users[authUser],
-          questions: users[authUser].questions.concat([formattedQuestion.id])
-        }
+          questions: users[authUser].questions.concat([formattedQuestion.id]),
+        },
       };
 
       res(formattedQuestion);
@@ -187,9 +186,9 @@ export function _saveQuestionAnswer({ authUser, qid, answer }) {
           ...users[authUser],
           answers: {
             ...users[authUser].answers,
-            [qid]: answer
-          }
-        }
+            [qid]: answer,
+          },
+        },
       };
 
       questions = {
@@ -198,9 +197,9 @@ export function _saveQuestionAnswer({ authUser, qid, answer }) {
           ...questions[qid],
           [answer]: {
             ...questions[qid][answer],
-            votes: questions[qid][answer].votes.concat([authUser])
-          }
-        }
+            votes: questions[qid][answer].votes.concat([authUser]),
+          },
+        },
       };
 
       res();
