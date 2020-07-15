@@ -16,6 +16,17 @@ class Navigation extends Component {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
+              <Navbar.Brand href="#home">
+                <LinkContainer to="/">
+                  <img
+                      alt=""
+                      src={'/download.png'}
+                      width="30"
+                      height="30"
+                      className="d-inline-block align-top rounded-circle border border-primary"
+                  />
+                </LinkContainer>
+              </Navbar.Brand>
               <LinkContainer to="/">
                 <Nav.Link>Home</Nav.Link>
               </LinkContainer>
@@ -38,7 +49,8 @@ class Navigation extends Component {
               <img
                 src={this.props.users[this.props.authUser].avatarURL}
                 alt={this.props.users[this.props.authUser].name}
-                style={{ width: "50px", borderRadius: "50%" }}
+                style={{ width: "50px"}}
+                className="rounded-circle border border-primary"
               />
               &nbsp; &nbsp;
             </span>

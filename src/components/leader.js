@@ -24,7 +24,7 @@ class Leader extends Component {
           }}
           className="border border-primary zoomIn"
         >
-          <Card.Img variant="top" src={`${this.props.img}`} />
+          <Card.Img variant="top" src={`${this.props.img}`}/>
           <Card.Body>
             <Badge variant="primary">
               {numberGenerator(this.props.number + 1)}
