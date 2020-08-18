@@ -1,7 +1,7 @@
 ## Would you rather
 This project is for Udacity's react nano degree;
 it's built using React, Redux, Redux-toolkit, React-Router, react-bootstrap, react-router-bootstrap, bootstrap and Tippyjs;
-you can check it here jan-would-you-rather.surge.sh
+you can check it here https://jan-would-you-rather.surge.sh/
 
 ![screenshot of the app](https://github.com/JanKaram2020/would-you/blob/master/2020-07-02%2009.10.28%20localhost%208470413f8411.jpg)
 
